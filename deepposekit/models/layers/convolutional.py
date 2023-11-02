@@ -13,9 +13,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from tensorflow.keras.layers import Layer, InputSpec
+from keras.layers import Layer, InputSpec
 
-from tensorflow.keras.layers import UpSampling2D
+from keras.layers import UpSampling2D
 
 from deepposekit.models.backend.backend import (
     resize_images,
@@ -24,7 +24,7 @@ from deepposekit.models.backend.backend import (
     space_to_depth,
 )
 
-from tensorflow.python.keras.utils.conv_utils import (
+from keras.utils.conv_utils import (
     normalize_data_format,
     normalize_tuple,
 )
