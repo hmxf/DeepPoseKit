@@ -118,9 +118,20 @@ You can start from any stage, but start from any small steps are not recommended
 
 - Test your Installation with pre-downloaded data within 5 miniutes ;)
 
+    Pre-downloaded data is located in ```data/``` directory and has been used by ```scripts/train.py``` and ```scripts/predict.py``` for fast test purpose only.
+
     ```
-    python main.py
+    python scripts/train.py
     ```
 
-    Pre-downloaded data located in ```data/``` directory and has been used by ```main.py``` for fast test purpose only.
+    After a model train process, you can verify if model data has been generated successfully under `data/` directory. If your model data has been stored as a single file `data/saved_model.h5`, then you can view its structure and weight parameters by using ```scripts/hdf5_file_reader.py``` script.
 
+    ```
+    python scripts/hdf5_file_reader.py
+    ```
+
+    One more step, you can use the trained model to do some predictions.
+
+    ```
+    python scripts/predict.py
+    ```
