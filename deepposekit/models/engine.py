@@ -22,7 +22,7 @@ from deepposekit.models.layers.subpixel import SubpixelMaxima2D
 from deepposekit.models.layers.convolutional import Maxima2D
 from deepposekit.utils.image import largest_factor
 from deepposekit.utils.keypoints import keypoint_errors
-from deepposekit.models.saving import save_model
+#from deepposekit.models.saving import save_model
 
 
 class BaseModel:
@@ -229,8 +229,8 @@ class BaseModel:
 
         return evaluation_dict
 
-    def save(self, path, overwrite=True):
-        save_model(self, path)
+    # def save(self, path, overwrite=True):
+    #     save_model(self, path)
 
     def get_config(self):
         config = {}
