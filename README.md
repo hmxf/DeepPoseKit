@@ -47,7 +47,7 @@ You can start from any stage, but start from any small steps are not recommended
     1. Create Virtual Environment
 
         ```
-        conda create -n tf tensorflow
+        conda create -n tf tensorflow keras-core
         ```
 
     2. Enter Virtual Environment

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import keras_core as keras
 from deepposekit.io import DataGenerator, TrainingGenerator
 from deepposekit.models import StackedDenseNet
 

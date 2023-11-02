@@ -66,3 +66,5 @@ tmp\.txt
 tmp2\.txt
 
 examples/deepposekit-data
+
+data/saved_model.h5
