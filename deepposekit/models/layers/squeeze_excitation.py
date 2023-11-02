@@ -13,8 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from tensorflow.keras import layers
-from tensorflow.keras import backend as K
+from keras import layers
+from keras import backend as K
 import numpy as np
 
 

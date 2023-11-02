@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from tensorflow.keras import Model
+from keras import Model
 import numpy as np
 
 from deepposekit.models.engine import BaseModel

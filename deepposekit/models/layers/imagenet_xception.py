@@ -26,11 +26,11 @@ from __future__ import division
 import os
 import warnings
 import numpy as np
-import tensorflow.keras as keras
+import keras_core as keras
 
 from deepposekit.models.layers import imagenet_utils
-from tensorflow.keras.layers import Layer
-from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
+from keras.layers import Layer
+from keras.applications.mobilenet_v2 import preprocess_input
 
 correct_pad = imagenet_utils.correct_pad
 _obtain_input_shape = imagenet_utils._obtain_input_shape
@@ -338,9 +338,9 @@ MODELS = {"xception": Xception}
 
 if __name__ == "__main__":
 
-    from tensorflow.keras.applications.xception import preprocess_input
-    from tensorflow.keras.layers import Input
-    from tensorflow.keras import Model
+    from keras.applications.xception import preprocess_input
+    from keras.layers import Input
+    from keras import Model
 
     input_layer = Input((192, 192, 3))
     model = Xception(include_top=False)

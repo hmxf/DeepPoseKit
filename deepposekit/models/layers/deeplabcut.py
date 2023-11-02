@@ -23,8 +23,8 @@ from __future__ import print_function
 
 import os
 import numpy as np
-from tensorflow.keras.layers import Layer
-from tensorflow.keras import backend
+from keras.layers import Layer
+from keras import backend
 
 from deepposekit.models.layers.imagenet_resnet import MODELS as RESNET_MODELS
 from deepposekit.models.layers.imagenet_mobile import MODELS as MOBILE_MODELS
@@ -165,9 +165,9 @@ MODELS = dict(MODELS)
 
 if __name__ == "__main__":
 
-    from tensorflow.keras.applications.resnet50 import preprocess_input
-    from tensorflow.keras.layers import Input
-    from tensorflow.keras import Model
+    from keras.applications.resnet50 import preprocess_input
+    from keras.layers import Input
+    from keras import Model
 
     input_layer = Input((192, 192, 3))
     model = ResNet50(include_top=False, input_shape=(192, 192, 3))

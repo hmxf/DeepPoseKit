@@ -15,10 +15,10 @@
 
 import numpy as np
 
-from tensorflow.keras.layers import Conv2D, BatchNormalization, Add, MaxPool2D
+from keras.layers import Conv2D, BatchNormalization, Add, MaxPool2D
 from deepposekit.models.layers.convolutional import UpSampling2D
 from functools import partial
-from tensorflow.keras import backend as K
+from keras import backend as K
 
 
 __all__ = ["ResidualBlock", "FrontModule", "Output", "Hourglass"]

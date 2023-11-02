@@ -15,7 +15,7 @@
 
 import numpy as np
 
-from tensorflow.keras import layers
+from keras import layers
 
 from deepposekit.models.layers.convolutional import UpSampling2D
 from deepposekit.models.layers.util import ImageNormalization

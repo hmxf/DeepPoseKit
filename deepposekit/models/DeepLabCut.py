@@ -13,8 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from tensorflow.keras import Input, Model
-from tensorflow.keras.layers import Conv2DTranspose, Concatenate
+from keras import Input, Model
+from keras.layers import Conv2DTranspose, Concatenate
 from deepposekit.models.layers.deeplabcut import ImageNetPreprocess, MODELS
 from deepposekit.models.layers.convolutional import SubPixelUpscaling
 

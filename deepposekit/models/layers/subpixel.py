@@ -15,8 +15,8 @@
 
 from deepposekit.models.backend.backend import find_subpixel_maxima
 
-from tensorflow.keras.layers import Layer, InputSpec
-from tensorflow.python.keras.utils.conv_utils import normalize_data_format
+from keras.layers import Layer, InputSpec
+from python.keras.utils.conv_utils import normalize_data_format
 
 
 class SubpixelMaxima2D(Layer):

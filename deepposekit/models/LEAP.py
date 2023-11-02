@@ -13,8 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from tensorflow.keras import Input, Model
-from tensorflow.keras.layers import Conv2D, Conv2DTranspose, BatchNormalization
+from keras import Input, Model
+from keras.layers import Conv2D, Conv2DTranspose, BatchNormalization
 
 from deepposekit.models.layers.convolutional import UpSampling2D
 from deepposekit.models.layers.util import ImageNormalization

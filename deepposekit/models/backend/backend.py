@@ -13,8 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import tensorflow.keras.backend as K
-from tensorflow.keras.backend import int_shape, permute_dimensions, dtype, floatx
+import keras.backend as K
+from keras.backend import int_shape, permute_dimensions, dtype, floatx
 import tensorflow as tf
 import numpy as np
 

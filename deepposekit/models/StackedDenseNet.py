@@ -14,8 +14,8 @@
 # limitations under the License.
 
 import numpy as np
-from tensorflow.keras import Input, Model
-from tensorflow.keras.layers import BatchNormalization
+from keras import Input, Model
+from keras.layers import BatchNormalization
 
 import deepposekit.utils.image as image_utils
 from deepposekit.models.engine import BaseModel

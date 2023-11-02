@@ -24,8 +24,8 @@ from __future__ import division
 from __future__ import print_function
 
 import os
-import tensorflow.keras as keras
-from tensorflow.keras.layers import Layer
+import keras_core as keras
+from keras.layers import Layer
 
 from deepposekit.models.layers import imagenet_utils
 
@@ -376,9 +376,9 @@ MODELS = {"resnet50": ResNet50, "resnet101": ResNet101, "resnet152": ResNet152}
 
 if __name__ == "__main__":
 
-    from tensorflow.keras.applications.resnet50 import preprocess_input
-    from tensorflow.keras.layers import Input
-    from tensorflow.keras import Model
+    from keras.applications.resnet50 import preprocess_input
+    from keras.layers import Input
+    from keras import Model
 
     input_layer = Input((192, 192, 3))
     model = ResNet50(include_top=False, input_shape=(192, 192, 3))
