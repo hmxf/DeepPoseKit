@@ -101,7 +101,7 @@ class LEAP(BaseModel):
         self.filters = filters
         self.upsampling = upsampling
         self.activation = activation
-        if activation is "selu":
+        if activation == "selu":
             batchnorm = False
             use_bias = False
         if batchnorm:
@@ -115,7 +115,7 @@ class LEAP(BaseModel):
         super(LEAP, self).__init__(train_generator, subpixel, **kwargs)
 
     def __init_model__(self):
-        if self.train_generator.downsample_factor is not 0:
+        if self.train_generator.downsample_factor != 0:
             raise ValueError("LEAP is only compatible with a downsample_factor of 0")
         normalized = ImageNormalization()(self.inputs)
 

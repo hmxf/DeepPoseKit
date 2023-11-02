@@ -102,7 +102,7 @@ class DeepLabCut(BaseModel):
 
     def __init_model__(self):
 
-        if self.input_shape[-1] is 1:
+        if self.input_shape[-1] == 1:
             inputs = Concatenate()([self.inputs] * 3)
         else:
             inputs = self.inputs
@@ -124,10 +124,10 @@ class DeepLabCut(BaseModel):
             include_top=False, weights=self.weights, input_shape=input_shape
         )
         pretrained_features = pretrained_model(normalized)
-        if self.train_generator.downsample_factor is 4:
+        if self.train_generator.downsample_factor == 4:
             x = pretrained_features
             x_out = Conv2D(self.train_generator.n_output_channels, (1, 1))(x)
-        elif self.train_generator.downsample_factor is 3:
+        elif self.train_generator.downsample_factor == 3:
             x = pretrained_features
             x_out = Conv2DTranspose(
                 self.train_generator.n_output_channels,
@@ -135,7 +135,7 @@ class DeepLabCut(BaseModel):
                 strides=(2, 2),
                 padding="same",
             )(x)
-        elif self.train_generator.downsample_factor is 2:
+        elif self.train_generator.downsample_factor == 2:
             x = pretrained_features
             x = SubPixelUpscaling()(x)
             x_out = Conv2DTranspose(
@@ -159,7 +159,7 @@ class DeepLabCut(BaseModel):
             "subpixel": self.subpixel,
             "weights": self.weights,
             "backbone": self.backbone,
-            "alpha": self.alpha if self.backbone is "mobilenetv2" else None,
+            "alpha": self.alpha if self.backbone == "mobilenetv2" else None,
         }
         base_config = super(DeepLabCut, self).get_config()
         return dict(list(config.items()) + list(base_config.items()))

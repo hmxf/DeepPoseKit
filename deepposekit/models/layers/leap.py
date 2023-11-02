@@ -36,11 +36,11 @@ class ConvBlock2D:
         self.activation = activation
         self.initializer = initializer
         self.use_bias = use_bias
-        if activation.lower() is not "selu" and batchnorm:
+        if activation.lower() != "selu" and batchnorm:
             self.batchnorm = True
         else:
             self.batchnorm = False
-        if activation.lower() is "selu":
+        if activation.lower() == "selu":
             self.initializer = "lecun_normal"
         self.name = name
 
@@ -81,13 +81,13 @@ class ConvPool2D:
         self.initializer = initializer
         self.use_bias = use_bias
         self.pooling = pooling
-        if activation.lower() is not "selu" and batchnorm:
+        if activation.lower() != "selu" and batchnorm:
             self.batchnorm = True
         else:
             self.batchnorm = False
-        if activation.lower() is "selu":
+        if activation.lower() == "selu":
             self.initializer = "lecun_normal"
-        if pooling is "average":
+        if pooling == "average":
             self.Pooling2D = layers.AveragePooling2D
         else:
             self.Pooling2D = layers.MaxPooling2D

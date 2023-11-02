@@ -78,7 +78,7 @@ class DataGenerator(BaseGenerator):
                 raise ValueError("mode must be 'full', 'annotated', or 'unannotated'")
             else:
                 self.mode = mode
-            self.annotated = np.all(h5file["annotated"].value, axis=1)
+            self.annotated = np.all(h5file["annotated"][:], axis=1)
             self.annotated_index = np.where(self.annotated)[0]
             self.n_annotated = self.annotated_index.shape[0]
             if self.n_annotated == 0 and self.mode not in ["full", "unannotated"]:
@@ -104,9 +104,9 @@ class DataGenerator(BaseGenerator):
             return h5file[self.dataset].shape[1:]
 
     def get_indexes(self, indexes):
-        if self.mode is "annotated":
+        if self.mode == "annotated":
             indexes = self.annotated_index[indexes]
-        elif self.mode is "unannotated":
+        elif self.mode == "unannotated":
             indexes = self.unannotated_index[indexes]
         else:
             indexes = self.index[indexes]
@@ -129,9 +129,9 @@ class DataGenerator(BaseGenerator):
         return np.stack(keypoints)
 
     def set_keypoints(self, indexes, keypoints):
-        if keypoints.shape[-1] is 3:
+        if keypoints.shape[-1] == 3:
             keypoints = keypoints[..., :2]
-        elif keypoints.shape[-1] is not 2:
+        elif keypoints.shape[-1] != 2:
             raise ValueError("data shape does not match annotations")
         indexes = self.get_indexes(indexes)
 
@@ -142,12 +142,12 @@ class DataGenerator(BaseGenerator):
     def __call__(self, mode="annotated"):
         if mode not in ["full", "annotated", "unannotated"]:
             raise ValueError("mode must be full, annotated, or unannotated")
-        elif mode is "annotated" and self.n_annotated == 0:
+        elif mode == "annotated" and self.n_annotated == 0:
             raise ValueError(
                 "cannot return annotated samples, "
                 "number of annotated samples is zero"
             )
-        elif mode is "unannotated" and self.n_unannotated == 0:
+        elif mode == "unannotated" and self.n_unannotated == 0:
             raise ValueError(
                 "cannot return unannotated samples, "
                 "number of unannotated samples is zero"
@@ -157,9 +157,9 @@ class DataGenerator(BaseGenerator):
         return copy.deepcopy(self)
 
     def __len__(self):
-        if self.mode is "annotated":
+        if self.mode == "annotated":
             return self.n_annotated
-        elif self.mode is "unannotated":
+        elif self.mode == "unannotated":
             return self.n_unannotated
         else:
             return self.n_samples

@@ -171,7 +171,7 @@ class TrainingGenerator(Sequence):
         # indices for validation set in sample_index
         self.index = np.arange(self.n_samples)
         self.n_validation = int(self.validation_split * self.n_samples)
-        if self.n_validation is 0:
+        if self.n_validation == 0:
             warnings.warn(
                 "`n_validation` is 0. Increase `validation_split` to use a validation set."
             )
@@ -221,12 +221,12 @@ class TrainingGenerator(Sequence):
         self.n_outputs = n_outputs
         self.batch_size = batch_size
         if validation:
-            if self.n_validation is 0 and self.validation_split is 0:
+            if self.n_validation == 0 and self.validation_split == 0:
                 warnings.warn(
                     "`validation_split` is 0, so there will be no validation step. "
                     "callbacks that rely on `val_loss` should be switched to `loss` or removed."
                 )
-            if self.n_validation is 0 and self.validation_split is not 0:
+            if self.n_validation == 0 and self.validation_split != 0:
                 warnings.warn(
                     "`validation_split` is too small, so there will be no validation step. "
                     "`validation_split` should be increased or "

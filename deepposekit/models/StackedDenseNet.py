@@ -171,7 +171,7 @@ class StackedDenseNet(BaseModel):
                 " If `n_transitions` is -1 (the default), check that your image resolutions can be repeatedly downsampled (are divisible by 2 repeatedly)."
             )
         if self.pretrained:
-            if self.input_shape[-1] is 1:
+            if self.input_shape[-1] == 1:
                 inputs = Concatenate()([self.inputs] * 3)
                 input_shape = self.input_shape[:-1] + (3,)
             else:
