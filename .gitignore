@@ -69,3 +69,8 @@ examples/deepposekit-data
 
 data/saved_model.h5
 data/saved_model.keras
+data/saved_model/fingerprint.pb
+data/saved_model/keras_metadata.pb
+data/saved_model/variables/variables.data-00000-of-00001
+data/saved_model/variables/variables.index
+data/saved_model/saved_model.pb

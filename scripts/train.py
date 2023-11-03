@@ -18,9 +18,10 @@ model.fit(batch_size=16, n_workers=8)
 # but the former works fine but the latter doesn't, weird.
 
 # Just choose the format you like. 
-# This statement can be output normally for models in both formats.
-# model.train_model.save('data/saved_model.keras')
-model.train_model.save('data/saved_model.h5')
+# This statement can be output normally for models in any of these formats.
+#model.train_model.save(filepath='data/saved_model.keras', overwrite=True, save_format=None)
+#model.train_model.save(filepath='data/saved_model.h5', overwrite=True, save_format=None)
+model.train_model.save(filepath='data/saved_model', overwrite=True, save_format=None)
 
 # This cannot work. Maybe someone can try dig in and find why.
 # keras.saving.save_model(model, filepath='saved_model.keras', overwrite=True)
