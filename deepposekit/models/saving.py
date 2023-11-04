@@ -13,37 +13,38 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import keras_core as keras
-
+from tensorflow.python.keras.saving import save
 import h5py
 import json
 from deepposekit.utils.io import get_json_type
 
-# def save_model(model, path, optimizer=True):
 
-#     if isinstance(path, str):
-#         if path.endswith(".h5") or path.endswith(".hdf5"):
-#             filepath = path
-#         else:
-#             raise ValueError("file must be .h5 file")
-#     else:
-#         raise TypeError("file must be type `str`")
+def save_model(model, path, optimizer=True):
 
-#     save_model(model.train_model, path, include_optimizer=optimizer)
+    if isinstance(path, str):
+        if path.endswith(".h5") or path.endswith(".hdf5"):
+            filepath = path
+        else:
+            raise ValueError("file must be .h5 file")
+    else:
+        raise TypeError("file must be type `str`")
 
-#     with h5py.File(filepath, "r+") as h5file:
+    save.save_model(model.train_model, path, include_optimizer=optimizer)
 
-#         train_generator = model.train_generator
+    with h5py.File(filepath, "r+") as h5file:
 
-#         h5file.attrs["train_generator_config"] = json.dumps(
-#             {
-#                 "class_name": train_generator.__class__.__name__,
-#                 "config": train_generator.get_config(),
-#             },
-#             default=get_json_type,
-#         ).encode("utf8")
+        train_generator = model.train_generator
 
-#         h5file.attrs["pose_model_config"] = json.dumps(
-#             {"class_name": model.__class__.__name__, "config": model.get_config()},
-#             default=get_json_type,
-#         ).encode("utf8")
+        h5file.attrs["train_generator_config"] = json.dumps(
+            {
+                "class_name": train_generator.__class__.__name__,
+                "config": train_generator.get_config(),
+            },
+            default=get_json_type,
+        ).encode("utf8")
+
+        h5file.attrs["pose_model_config"] = json.dumps(
+            {"class_name": model.__class__.__name__, "config": model.get_config()},
+            default=get_json_type,
+        ).encode("utf8")
+        

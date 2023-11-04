@@ -47,7 +47,7 @@ You can start from any stage, but start from any small steps are not recommended
     1. Create Virtual Environment
 
         ```
-        conda create -n tf tensorflow keras-core
+        conda create -n tf tensorflow
         ```
 
     2. Enter Virtual Environment
@@ -59,7 +59,7 @@ You can start from any stage, but start from any small steps are not recommended
     3. Install dependencies by installing and removing pre-built version of ```deepposekit``` and ```scikit-learn``` with pip
 
         ```
-        pip install deepposekit scikit-learn
+        pip install deepposekit scikit-learn keras-core
         
         pip uninstall deepposekit scikit-learn
         ```
